@@ -104,3 +104,10 @@
   transition: color 0.3s;
 }
 
+.backgroundContainer {
+  background-image: url('./assets/BGone.png');
+  background-size: 25% 70%;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}

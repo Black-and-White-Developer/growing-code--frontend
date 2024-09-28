@@ -43,7 +43,7 @@ const Links = () => {
     };
 
     return (
-        <div>
+        <div className="backgroundContainer">
             <div className="newsSection">
                 <h2>오늘의 씨앗 뉴스</h2>
                 <Slider {...sliderSettings}>
