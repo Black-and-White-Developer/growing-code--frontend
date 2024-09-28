@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './MyPage.css';
 
-function App() {
+function MyPage() {
   const [diaryText, setDiaryText] = useState('');
   const [diaryEntries, setDiaryEntries] = useState([]);
   const [editIndex, setEditIndex] = useState(-1); // 수정할 항목의 인덱스를 저장
