@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
+import './Comment.css';
 
-const Home = () => {
+const Comment = () => {
     return (
+
         <>
-            <main className='homemain'>
+            <main className='comment'>
             </main>
         </>
     );
 };
 
-export default Home;
+export default Comment;

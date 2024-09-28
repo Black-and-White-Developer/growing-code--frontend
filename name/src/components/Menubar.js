@@ -4,16 +4,19 @@ import './Menubar.css';
 
 
 const Menubar = () => {
-    return (
-      <nav className="menubar">
-        <div className="menubar-logo">
-          <Link to="/"><img src="images/blank_icon.jpg" alt="Menu" /></Link> 
-        </div>
-        <ul className="menubar-menu">
-          <li><Link to="/"><img src="images/home2_icon.png" alt="Home" /></Link></li>
-        </ul>
-      </nav>
+  return (
+    <nav className="menubar">
+      <div className="feedback">
+        <Link to="/">feedback</Link> 
+      </div>
+      <div className="c">
+        <Link to="/comment">comment</Link>
+      </div>
+      <div>
+        <Link to="/links">links</Link>
+      </div>
+    </nav>
     );
-  };
+};
   
   export default Menubar;
