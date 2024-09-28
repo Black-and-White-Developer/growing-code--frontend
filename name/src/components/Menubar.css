@@ -23,30 +23,30 @@
     box-shadow: -6px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-#FB, #CM, #LK {
-    color: #568807;
-    font-weight: 600;
-    letter-spacing: 2px;
-    
-}
-
 #FBA {
     top: -70px;
-    left: 150px;
+    left: 11%;
 }
 #CMA {
     top: -70px;
-    left: 510px;
+    left: 36%;
 }
 
 #LKA {
     top: -70px;
-    left: 870px;
+    left: 61%;
+}
+
+#FB, #CM, #LK {
+    color: #568807;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 .menubar-menu.active {
-    background-color: #568807; /* 활성화된 경우의 배경색 */
-    border-color: white;
+    /*background-color: #568807;  활성화된 경우의 배경색 */
+    background: url('../menuBackground.JPG') no-repeat;
+    border: none;
 }
 
 .menubar-menu-op.active {
