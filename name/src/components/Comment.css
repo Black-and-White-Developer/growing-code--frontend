@@ -1,3 +1,43 @@
 .commentmain {
-    background-color: blue;
+    align-items: center;
+    text-align: center;
+    background-image: url('../BGtwo.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 400px;
+}
+
+#notice {
+    text-align: center;
+    color: gray;
+    margin: 15px;
+    margin-bottom: 0px;
+}
+
+.pickRange {
+    text-align: center;
+    margin-top: 0px;
+    margin: 30px auto;
+    background-color: white;
+    width: 675px;
+    height: 55px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.cLabel { 
+    margin: 17px 40px;
+    font-size: 19px;
+}
+
+.cLabel input[type='checkbox'] {
+    width: 15px;
+    height: 15px;
+    accent-color: #C1E283;
+}
+
+#op1, #op2, #op3 {
+    margin-right: 15px;
+    color: red;
 }
