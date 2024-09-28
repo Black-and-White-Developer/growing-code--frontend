@@ -1,21 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MyPage.css';
+import { Router } from 'react-router-dom';
+
+let lastUpdate='';
+let today=new Date().toDateString();
 
 function MyPage() {
-    const [diaryText, setDiaryText] = useState('');
-    const [diaryEntries, setDiaryEntries] = useState([]);
-    const [editIndex, setEditIndex] = useState(-1); // 수정할 항목의 인덱스를 저장
+  const [diaryText, setDiaryText] = useState('');
+  const [diaryEntries, setDiaryEntries] = useState([]);
+  const [editIndex, setEditIndex] = useState(-1); // 수정할 항목의 인덱스를 저장
+  const [plantStage, setPlantStage] = useState(1);
 
-    const handleSave = () => {
+
+  const handleSave = () => {
+    const now = new Date();
+    const formattedDate = now.toLocaleString();
+
+    if (lastUpdate !== today) {
+      lastUpdate=today
+      setPlantStage(plantStage + (1/8)); // 하루에 일기 1개씩 입력 가능, 1/8씩 성장 //
+    }
     if (diaryText.trim() === "") {
         alert("내용을 입력하세요.");
         return;
     }
-
-    const now = new Date();
-    const formattedDate = now.toLocaleString();
+    
     const newEntry = { text: diaryText, date: formattedDate, num: diaryEntries.length+1};
     setDiaryEntries([newEntry, ...diaryEntries]);
+
     setDiaryText('');
     };
 
@@ -41,10 +53,13 @@ function MyPage() {
 
     return (
     <div style={{ display: 'flex', height: '100vh' }}>
-        <div className="leftSpace">
+      <div className="leftSpace">
+        <div className="profile-container">
+          <img src={`/plant/plant-stage-${parseInt(plantStage)}.png`} alt="Profile" className="profile-image" />          
+        </div>     
+      </div>
 
-        </div>
-        <div className="rightSpace">
+      <div className="rightSpace">
         <h1>피드백 내용</h1>
         <div className="diary-input">
             <textarea 
