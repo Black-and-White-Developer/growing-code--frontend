@@ -18,9 +18,11 @@ function AppLayout() {
     <div>
       <header className="appHeader">
         <p onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
-          logo
+          <img id='logo' src='images/logoMain.png' alt='logo'/>
         </p>
-        <MyPageButton />
+        <p id='mpButtonA'>
+          <MyPageButton />
+        </p>
       </header>
 
       {/* Menubar는 /mypage에서만 사라지도록 조건부 렌더링 */}
@@ -53,7 +55,7 @@ function MyPageButton() {
     navigate("/mypage"); 
   };
 
-  return <button onClick={handleButtonClick}>마이페이지</button>;
+  return <button id='mpButton' onClick={handleButtonClick}>MY SEEDS</button>;
 }
 
 
@@ -64,42 +66,3 @@ export default App;
 
 
 
-
-{/*
-function App() {
-  return (
-    <div className="app">
-      <header className="appHeader">
-        <p>logo</p>
-        <Router>
-          <MyPageButton />
-        </Router>
-      </header>
-      <div>
-        <Router>
-          <Menubar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/comment" element={<Comment />} />
-            <Route path="/links" element={<Links />} />
-          </Routes>
-        </Router>
-      </div>
-    </div>
-  );
-}
-
-function MyPageButton() {
-  const handleButtonClick = () => {
-    window.location.href = "/mypage"; // 완전히 새로운 페이지로 이동
-  };
-
-  return <button onClick={handleButtonClick}>마이페이지</button>;
-}
-
-
-
-
-
-
-*/}
