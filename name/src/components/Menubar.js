@@ -6,12 +6,15 @@ import './Menubar.css';
 const Menubar = () => {
     return (
       <nav className="menubar">
-        <div className="menubar-logo">
-          <Link to="/"><img src="images/blank_icon.jpg" alt="Menu" /></Link> 
+        <div className="menubar-menu">
+          <Link to="/">feedback</Link> 
         </div>
-        <ul className="menubar-menu">
-          <li><Link to="/"><img src="images/home2_icon.png" alt="Home" /></Link></li>
-        </ul>
+        <div className="menubar-menu">
+          <Link to="/comment">comment</Link>
+        </div>
+        <div className="menubar-menu">
+          <Link to="/links">Links</Link>
+        </div>
       </nav>
     );
   };
