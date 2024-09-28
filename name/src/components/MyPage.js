@@ -2,12 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './MyPage.css';
 import { Router } from 'react-router-dom';
 
-<<<<<<< HEAD
 let lastUpdate='';
 let today=new Date().toDateString();
 
-=======
->>>>>>> 78e9940763df19c9c54811b55df67e1538ef8c71
 function MyPage() {
   const [diaryText, setDiaryText] = useState('');
   const [diaryEntries, setDiaryEntries] = useState([]);
