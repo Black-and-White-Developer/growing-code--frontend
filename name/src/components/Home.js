@@ -7,7 +7,7 @@ const Home = () => {
     <>
         <main className='homemain'>
             <div className='feedback'>
-                content
+                
             </div>
         </main>
     </>
