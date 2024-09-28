@@ -2,8 +2,53 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #C1E283, red);
+    position: relative;
 }
 
 .menubar-menu {
-    margin: 20px;
+    font-size: 25px;
+    margin: 0px 0px;
+    padding: 20px 20px;
+    background-color: white;
+    width: 25%;
+    text-align: center;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    text-decoration: none;
+    position: absolute;
+    border: 0.5px solid #568807;
+    box-shadow: -6px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#FB, #CM, #LK {
+    color: #568807;
+    font-weight: 600;
+    letter-spacing: 2px;
+    
+}
+
+#FBA {
+    top: -70px;
+    left: 150px;
+}
+#CMA {
+    top: -70px;
+    left: 510px;
+}
+
+#LKA {
+    top: -70px;
+    left: 870px;
+}
+
+.menubar-menu.active {
+    background-color: #568807; /* 활성화된 경우의 배경색 */
+    border-color: white;
+}
+
+.menubar-menu-op.active {
+    color: white !important;
 }
