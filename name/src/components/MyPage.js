@@ -23,10 +23,15 @@ function MyPage() {
             });
 
             let data = await response.json();//data는 object타입
-            const diaryArray = Object.values(data);
+            const formattedEntries = Object.values(data).map((item, index) => ({
+                content: item.content, // 실제 필드 이름에 맞춰서 변경
+                date: item.date,       // 실제 필드 이름에 맞춰서 변경
+                num: index + 1,       // 인덱스를 기반으로 번호 설정
+            }));
 
-            console.log(diaryArray)
-            setDiaryEntries(diaryArray);
+            for(const newEntry in formattedEntries){
+                setDiaryEntries([newEntry, ...diaryEntries]);
+            }
         }
         catch(error){
             console.error(error);
