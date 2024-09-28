@@ -106,7 +106,7 @@
     color: white;
     font-size: 17px; 
     font-weight: 600;
-    /*cursor: pointer; */
+    cursor: pointer;
     width: 13%;
     margin-left: 33px;
     box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1);
