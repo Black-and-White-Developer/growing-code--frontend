@@ -8,10 +8,10 @@ import { BrowserRouter as Router, Route, Routes, Outlet, useLocation, useNavigat
 
 
 function AppLayout() {
-  const location = useLocation(); // 현재 경로를 가져옴
-  const navigate = useNavigate(); // useNavigate 훅 호출
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLogoClick = () => {
-    navigate("/"); // 루트 페이지로 이동
+    navigate("/");
   };
 
   return (
@@ -25,10 +25,10 @@ function AppLayout() {
         </p>
       </header>
 
-      {/* Menubar는 /mypage에서만 사라지도록 조건부 렌더링 */}
+      
       {location.pathname !== "/mypage" && <Menubar />}
 
-      <Outlet /> {/* 페이지 내용이 이곳에 바뀌면서 렌더링됨 */}
+      <Outlet />
     </div>
   );
 }

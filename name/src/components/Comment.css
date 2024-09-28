@@ -1,3 +1,117 @@
 .commentmain {
-    background-color: blue;
+    align-items: center;
+    text-align: center;
+    background-image: url('../BGtwo.png');
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 400px;
+}
+
+#notice {
+    text-align: center;
+    color: gray;
+    margin: 15px;
+    margin-bottom: 0px;
+}
+
+.pickRange {
+    text-align: center;
+    margin-top: 0px;
+    margin: 30px auto;
+    background-color: white;
+    width: 675px;
+    height: 55px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    color: #436308;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cLabel { 
+    margin: 17px 40px;
+    font-size: 19px;
+}
+
+.cLabel input[type='checkbox'] {
+    width: 15px;
+    height: 15px;
+    accent-color: #436308;
+}
+
+#op1, #op2, #op3 {
+    margin-right: 15px;
+    color: red;
+}
+
+
+
+
+
+
+
+.codeContainer2 {
+    max-width: 900px;
+    margin: 60px auto;
+    margin-bottom: 0;
+    padding: 5px;
+    padding-bottom: 100px;
+    
+    display: flex;
+    flex-direction: column;
+}
+  
+#cmH2 {
+    text-align: left;
+    color: #3d560f;
+    margin-left: 120px;
+    margin: 20px;
+    border-bottom: 0.1px solid grey;
+    padding-bottom: 5px;
+}
+  
+#codeInsert_form {
+    display: flex;
+    flex-direction: col;
+}
+
+#codeConcept2 {
+    margin: 10px auto;
+    padding: 10px;
+    border: 0.5px solid #ccc;
+    border-radius: 2px;
+    font-size: 16px;
+    resize: none; 
+    width: 90%
+}
+  
+#codeContent2 {
+    height: 400px;
+    resize: none;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 16px;
+    width: 90%;
+}
+  
+#completeButton2 {
+    padding: 10px;
+    margin: 10px;
+    border: none; 
+    border-radius: 2px;
+    background-color: #4a6911;
+    color: white;
+    font-size: 17px; 
+    font-weight: 600;
+    /*cursor: pointer; */
+    width: 13%;
+    margin-left: 33px;
+    box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1);
+}
+  
+#completeButton2:hover {
+    background-color: #c1e283;
 }
