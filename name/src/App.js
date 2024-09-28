@@ -18,9 +18,11 @@ function AppLayout() {
     <div>
       <header className="appHeader">
         <p onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
-          logo
+          <img id='logo' src='images/logoMain.png' alt='logo'/>
         </p>
-        <MyPageButton />
+        <p id='mpButtonA'>
+          <MyPageButton />
+        </p>
       </header>
 
       {/* Menubar는 /mypage에서만 사라지도록 조건부 렌더링 */}
@@ -53,12 +55,11 @@ function MyPageButton() {
     navigate("/mypage"); 
   };
 
-  return <button onClick={handleButtonClick}>마이페이지</button>;
+  return <button id='mpButton' onClick={handleButtonClick}>MY SEEDS</button>;
 }
 
 
 
 export default App;
-
 
 
