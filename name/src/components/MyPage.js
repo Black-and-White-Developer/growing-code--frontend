@@ -11,6 +11,7 @@ function MyPage() {
   const [editIndex, setEditIndex] = useState(-1); // 수정할 항목의 인덱스를 저장
   const [plantStage, setPlantStage] = useState(1);
 
+
   const handleSave = () => {
     const now = new Date();
     const formattedDate = now.toLocaleString();
@@ -26,7 +27,6 @@ function MyPage() {
     
     const newEntry = { text: diaryText, date: formattedDate, num: diaryEntries.length+1};
     setDiaryEntries([newEntry, ...diaryEntries]);
-
 
     setDiaryText('');
   };
@@ -55,9 +55,8 @@ function MyPage() {
     <div style={{ display: 'flex', height: '100vh' }}>
       <div className="leftSpace">
         <div className="profile-container">
-          <img src={`/plant/plant-stage-${parseInt(plantStage)}.png`} alt="Profile" className="profile-image" />
-          
-        </div>        
+          <img src={`/plant/plant-stage-${parseInt(plantStage)}.png`} alt="Profile" className="profile-image" />          
+        </div>     
       </div>
 
       <div className="rightSpace">
