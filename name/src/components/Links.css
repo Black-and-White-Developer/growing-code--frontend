@@ -111,3 +111,10 @@
   background-repeat: no-repeat;
   min-height: 100vh;
 }
+
+.cardThumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}

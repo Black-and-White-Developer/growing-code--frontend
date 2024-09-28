@@ -1,5 +1,5 @@
 import './Links.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react'; 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,13 +8,7 @@ import new2 from './assets/new2.png';
 import new3 from './assets/new3.png';
 
 const Links = () => {
-    const cardData = [
-        { id: 1, title: "Card 1", url: "#" },
-        { id: 2, title: "Card 2", url: "#" },
-        { id: 3, title: "Card 3", url: "#" },
-        { id: 4, title: "Card 4", url: "#" },
-        { id: 5, title: "Card 5", url: "#" }
-    ];
+    const [cardData, setCardData] = useState([]); 
 
     const newsData = [
         { id: 1, image: new1 },
@@ -42,6 +36,44 @@ const Links = () => {
         arrows: true,
     };
 
+    useEffect(() => {
+        const fetchCardData = async () => {
+            try {
+                const response = await fetch('http://3.38.223.198:8080/links', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzU0NDQzMywiZXhwIjoxNzI5MzQ0NDMzfQ.nOfIauv_Dw6W6WHelJOW4pVyO1Nh8L2g83tIZdvPCYA',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('네트워크 응답이 올바르지 않습니다');
+                }
+
+                const data = await response.json();
+                const formattedData = data.links.map((link, index) => {
+                    const videoId = link.split('/').pop();
+                    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
+                    return {
+                        id: index + 1,
+                        title: `추천 ${index + 1}`,
+                        url: link,
+                        thumbnail: thumbnailUrl,
+                    };
+                });
+
+                setCardData(formattedData); 
+            } catch (error) {
+                console.error('데이터 가져오기 오류:', error);
+                setCardData([]); 
+            }
+        };
+
+        fetchCardData();
+    }, []); 
+
     return (
         <div className="backgroundContainer">
             <div className="newsSection">
@@ -67,6 +99,7 @@ const Links = () => {
                         <div key={card.id} className="card">
                             <a href={card.url} target="_blank" rel="noopener noreferrer">
                                 <div className="cardContent">
+                                    <img src={card.thumbnail} alt={card.title} className="cardThumbnail" />
                                     <h3>{card.title}</h3>
                                 </div>
                             </a>
