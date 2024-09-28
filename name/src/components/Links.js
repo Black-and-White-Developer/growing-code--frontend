@@ -5,8 +5,8 @@ import './Links.css';
 const Links = () => {
     return (
         <>
-            <main className='comment'>
-                <p>asdlkf</p>
+            <main className='linkmain'>
+                <div>content</div>
             </main>
         </>
     );

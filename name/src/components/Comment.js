@@ -4,9 +4,11 @@ import './Comment.css';
 
 const Comment = () => {
     return (
-
         <>
-            <main className='comment'>
+            <main className='commentmain'>
+                <div className='comment'>
+                    content2
+                </div>
             </main>
         </>
     );

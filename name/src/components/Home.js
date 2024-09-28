@@ -6,6 +6,9 @@ const Home = () => {
     return (
         <>
             <main className='homemain'>
+                <div className='home'>
+                    content
+                </div>
             </main>
         </>
     );

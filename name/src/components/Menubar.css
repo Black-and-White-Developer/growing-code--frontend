@@ -1,0 +1,13 @@
+.menubar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.menuOp {
+    margin: 10px;
+}
+
+.menubarTable {
+    width: 100%;
+}
