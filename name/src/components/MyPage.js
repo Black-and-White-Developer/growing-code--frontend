@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './MyPage.css';
+import { Router } from 'react-router-dom';
 
-function App() {
+function MyPage() {
   const [diaryText, setDiaryText] = useState('');
   const [diaryEntries, setDiaryEntries] = useState([]);
   const [editIndex, setEditIndex] = useState(-1); // 수정할 항목의 인덱스를 저장
+  const [showOverlay, setShowOverlay] = useState(false); // 오버레이 표시 여부
+  const [userLevel, setUserLevel] = useState(''); // 사용자 수준 저장
 
   const handleSave = () => {
     if (diaryText.trim() === "") {
@@ -39,10 +42,66 @@ function App() {
     setEditIndex(-1); // 수정 모드 종료
   };
 
+  const handleOpenOverlay = () => {
+    setShowOverlay(true);
+  };
+
+  const handleCloseOverlay = () => {
+    setShowOverlay(false);
+  };
+
+  const handleLevelChange = (level) => {
+    setUserLevel(level);
+  };
+
   return (
     <div style={{ display: 'flex', height: '100vh' }}>
       <div className="leftSpace">
+        <div className="profile-container">
+          <img src="https://bocdn.ecotree.green/blog/0001/01/ad46dbb447cd0e9a6aeecd64cc2bd332b0cbcb79.jpeg?d=960x540" alt="Profile" className="profile-image" />
+          <button className="settings-button" onClick={handleOpenOverlay}>설정</button>
+        </div>
 
+        {showOverlay && (
+          <div className="overlay">
+            <div className="overlay-header">
+              
+            </div>
+            <div className="user-level-selector">
+              <h3>사용자 수준 선택</h3>
+              <div>
+                <label>
+                  <input 
+                    type="radio" 
+                    value="상" 
+                    checked={userLevel === '상'} 
+                    onChange={() => handleLevelChange('상')} 
+                  />
+                  상
+                </label>
+                <label>
+                  <input 
+                    type="radio" 
+                    value="중" 
+                    checked={userLevel === '중'} 
+                    onChange={() => handleLevelChange('중')} 
+                  />
+                  중
+                </label>
+                <label>
+                  <input 
+                    type="radio" 
+                    value="하" 
+                    checked={userLevel === '하'} 
+                    onChange={() => handleLevelChange('하')} 
+                  />
+                  하
+                </label>
+              </div>
+            </div>
+            <button onClick={handleCloseOverlay} className="overlay-close-button">닫기</button>
+          </div>
+        )}
       </div>
       <div className="rightSpace">
         <h1>피드백 내용</h1>
