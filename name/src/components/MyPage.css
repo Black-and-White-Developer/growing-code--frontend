@@ -1,15 +1,23 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f2f2f2;
-}
 .leftSpace { /* 화면의 왼쪽 공간 */
   width: 50%;
   padding: 20px;
   background-color: #e9ecef;
   border-right: 1px solid #ccc; 
 }
+.profile-container {
+  position: absolute; /* Allows centering */
+  left: 15%; /* Centering on x-axis */
+  top: 50%; /* Centering on y-axis */
+  transform: translateY(-50%); /* Correcting vertical centering */
+  text-align: center;
+}
+.profile-image {
+  width: 200px; 
+  height: 200px; 
+  border-radius: 50%; /* 원형 이미지 */
+  margin-bottom: 0px;
+}
+
 .rightSpace {/*오른쪽 공간*/
   width: 50%; 
   padding: 20px;
