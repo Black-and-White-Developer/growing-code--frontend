@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MyPage.css';
 import { Router } from 'react-router-dom';
+
+let lastUpdate='';
+let today=new Date().toDateString();
 
 function MyPage() {
   const [diaryText, setDiaryText] = useState('');
   const [diaryEntries, setDiaryEntries] = useState([]);
   const [editIndex, setEditIndex] = useState(-1); // 수정할 항목의 인덱스를 저장
-  const [showOverlay, setShowOverlay] = useState(false); // 오버레이 표시 여부
-  const [userLevel, setUserLevel] = useState(''); // 사용자 수준 저장
+  const [plantStage, setPlantStage] = useState(1);
 
   const handleSave = () => {
+    const now = new Date();
+    const formattedDate = now.toLocaleString();
+
+    if (lastUpdate !== today) {
+      lastUpdate=today
+      setPlantStage(plantStage + (1/8)); // 하루에 일기 1개씩 입력 가능, 1/8씩 성장 //
+    }
     if (diaryText.trim() === "") {
       alert("내용을 입력하세요.");
       return;
     }
-
-    const now = new Date();
-    const formattedDate = now.toLocaleString();
+    
     const newEntry = { text: diaryText, date: formattedDate, num: diaryEntries.length+1};
     setDiaryEntries([newEntry, ...diaryEntries]);
+
+
     setDiaryText('');
   };
 
@@ -42,23 +51,11 @@ function MyPage() {
     setEditIndex(-1); // 수정 모드 종료
   };
 
-  const handleOpenOverlay = () => {
-    setShowOverlay(true);
-  };
-
-  const handleCloseOverlay = () => {
-    setShowOverlay(false);
-  };
-
-  const handleLevelChange = (level) => {
-    setUserLevel(level);
-  };
-
   return (
     <div style={{ display: 'flex', height: '100vh' }}>
       <div className="leftSpace">
         <div className="profile-container">
-          <img src="https://bocdn.ecotree.green/blog/0001/01/ad46dbb447cd0e9a6aeecd64cc2bd332b0cbcb79.jpeg?d=960x540" alt="Profile" className="profile-image" />
+          <img src={`/plant/plant-stage-${parseInt(plantStage)}.png`} alt="Profile" className="profile-image" />
           
         </div>        
       </div>
