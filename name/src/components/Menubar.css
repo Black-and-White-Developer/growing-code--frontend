@@ -1,0 +1,9 @@
+.menubar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.menubar-menu {
+    margin: 20px;
+}
