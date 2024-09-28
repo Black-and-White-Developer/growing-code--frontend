@@ -3,8 +3,18 @@ import { Link } from 'react-router-dom';
 import './Comment.css';
 
 const Comment = () => {
+    // Base64 인코딩 함수
+    const encodeToBase64 = (data) => {
+        try {
+            return btoa(unescape(encodeURIComponent(data))); // 유니코드 문자열을 안전하게 Base64로 인코딩
+        } catch (err) {
+            console.error("인코딩 오류: ", err);
+            return null;
+        }
+    };
+
     const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    const [code, setContent] = useState('');
     const [itemsList, setItemsList] = useState([]);
     const [selectedCheckbox, setSelectedCheckbox] = useState('');
     const handleTitleChange = (e) => {
@@ -24,22 +34,27 @@ const Comment = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (title && content) {
+        if (title && code) {
             // 데이터 객체 생성
             const data = {
                 title: title,
-                content: content,
-                checkbox: selectedCheckbox // 선택된 체크박스도 함께 보낼 수 있습니다
+                code: encodeToBase64(code),
+                additionalType: selectedCheckbox // 선택된 체크박스도 함께 보낼 수 있습니다
             };
     
+
+            const encodedData = JSON.stringify(data);
+
+
             try {
                 // fetch API를 사용해 POST 요청 보내기
-                const response = await fetch('http://loacalhost:8080/feedback', {
+                const response = await fetch('http://10.223.112.80:8080/comments', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzU0NDQzMywiZXhwIjoxNzI5MzQ0NDMzfQ.nOfIauv_Dw6W6WHelJOW4pVyO1Nh8L2g83tIZdvPCYA'
                     },
-                    body: JSON.stringify(data) // data 객체를 JSON 형식으로 변환하여 보냄
+                    body: encodedData // data 객체를 JSON 형식으로 변환하여 보냄
                 });
     
                 if (response.ok) {
@@ -47,7 +62,7 @@ const Comment = () => {
                     console.log('서버 응답:', result);
     
                     // 제출된 항목을 리스트에 추가
-                    setItemsList([...itemsList, { title, content }]);
+                    setItemsList([...itemsList, { title, code }]);
     
                     // 폼 필드 초기화
                     setTitle('');
@@ -104,11 +119,23 @@ const Comment = () => {
                     />
                     <textarea id='codeContent2'
                         placeholder="코드를 입력하세요"
-                        value={content}
+                        value={code}
                         onChange={handleContentChange}
                         required
                     />
                     <button type="submit" id='completeButton2'>작성완료</button>
+                </div>
+                <div>
+                    <div id='noone' className='getData1'>
+                        <h3 id='perfLabel'>RESULT: </h3>
+                        <ul>
+                            {itemsList.map((item, index) => (
+                                <li key={index}>
+                                    {item.code}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </form>
