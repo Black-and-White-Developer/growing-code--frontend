@@ -33,7 +33,7 @@ const Comment = () => {
     
 
     return (
-        <form onSubmit={handleSubmit} id='codeInsert form'>
+        <form onSubmit={handleSubmit}>
             <div className='commentmain'>
                 <p id='notice'>*주석을 추가할 단위를 선택해주세요</p>
                 <div className='pickRange'>
@@ -53,22 +53,26 @@ const Comment = () => {
                         줄 단위
                     </label>
                 </div>
-                <div className="codeContainer">
-                    <h2>코드 작성</h2>
-                    <input id='codeConcept'
+
+
+
+                
+                <div className="codeContainer2">
+                    <h2 id='cmH2'>코드 작성</h2>
+                    <input id='codeConcept2'
                         type="text"
                         placeholder="코드 주제"
                         value={title}
                         onChange={handleTitleChange}
                         required
                     />
-                    <textarea id='codeContent'
+                    <textarea id='codeContent2'
                         placeholder="코드를 입력하세요"
                         value={content}
                         onChange={handleContentChange}
                         required
                     />
-                    <button type="submit" id='completeButton'>작성완료</button>
+                    <button type="submit" id='completeButton2'>작성완료</button>
                 </div>
             </div>
         </form>
