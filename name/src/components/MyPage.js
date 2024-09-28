@@ -11,22 +11,62 @@ function MyPage() {
   const [editIndex, setEditIndex] = useState(-1); // 수정할 항목의 인덱스를 저장
   const [plantStage, setPlantStage] = useState(1);
 
+  useEffect(()=>{
+    const fetchDiaries = async()=>{
+        try{
+            const response = await fetch("http://3.38.223.198:8080/mypage",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzU2MDY2MSwiZXhwIjoxNzI5MzYwNjYxfQ.YCkfhzDUYHuOq2Du2GTzIxakIhRxaeKriKZ2B_Gxp3Y'
+                },
+            });
 
-  const handleSave = () => {
-    const now = new Date();
-    const formattedDate = now.toLocaleString();
+            let data = await response.json();//data는 object타입
+            const diaryArray = Object.values(data);
 
-    if (lastUpdate !== today) {
-      lastUpdate=today
-      setPlantStage(plantStage + (1/8)); // 하루에 일기 1개씩 입력 가능, 1/8씩 성장 //
-    }
+            console.log(diaryArray)
+            setDiaryEntries(diaryArray);
+        }
+        catch(error){
+            console.error(error);
+        }
+    };
+    fetchDiaries();
+  }, []);
+
+  const handleSave = async () => {
     if (diaryText.trim() === "") {
         alert("내용을 입력하세요.");
         return;
     }
+    const now = new Date();
+    const formattedDate = now.toLocaleString();
+    const newEntry = { content: diaryText, date: formattedDate, num: diaryEntries.length+1};
+
+    if (lastUpdate !== today) {
+      lastUpdate=today
+      setPlantStage(plantStage + (1/8)); // 하루에 피드백 최대 1개(2개 이상 작성은 가능하나, 1개만 적용)=1/8씩 성장 //
+    }
     
-    const newEntry = { text: diaryText, date: formattedDate, num: diaryEntries.length+1};
-    setDiaryEntries([newEntry, ...diaryEntries]);
+    try{
+        const response = await fetch("http://3.38.223.198:8080/mypage", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzU2MDY2MSwiZXhwIjoxNzI5MzYwNjYxfQ.YCkfhzDUYHuOq2Du2GTzIxakIhRxaeKriKZ2B_Gxp3Y'
+            },
+            body: JSON.stringify(newEntry),
+        });
+
+        if (response.ok){
+            setDiaryEntries([newEntry, ...diaryEntries]); //피드백 목록에 표시
+        } else{
+            console.error('피드백을 저장하지 못했습니다');
+        }
+    }catch (error){
+        console.error('에러: ', error);
+    }
 
     setDiaryText('');
     };
@@ -42,7 +82,7 @@ function MyPage() {
 
     const handleEditChange = (index, newText) => {
     const updatedEntries = diaryEntries.map((entry, i) => 
-        i === index ? { ...entry, text: newText } : entry
+        i === index ? { ...entry, content: newText } : entry
     );
     setDiaryEntries(updatedEntries);
     };
@@ -77,7 +117,7 @@ function MyPage() {
                 {editIndex === index ? (
                 <>
                     <textarea 
-                    value={entry.text}
+                    value={entry.content}
                     onChange={(e) => handleEditChange(index, e.target.value)}/>
                     <button onClick={handleEditSave} >
                         수정 완료
@@ -85,7 +125,7 @@ function MyPage() {
                 </>
                 ) : (
                 <>
-                    <div className="entry-text">{entry.text}</div>
+                    <div className="entry-text">{entry.content}</div>
                     <div className="entry-buttons">
                         <button onClick={() => handleEdit(index)}>
                             <img src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" alt="수정 아이콘" style={{ width: '12px', height: '12px' }} />

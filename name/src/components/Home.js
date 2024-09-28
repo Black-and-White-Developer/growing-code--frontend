@@ -4,8 +4,7 @@ import './Home.css';
 
 const Home = () => {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [itemsList, setItemsList] = useState([]);
+  const [code, setContent] = useState('');
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -15,17 +14,18 @@ const Home = () => {
     setContent(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { //코드 입력->Gemini
     e.preventDefault();
-    if (title && content) {
+    if (title && code) {
       try{
-        const jsonData = JSON.stringify({ codeConcept: title, codeContent: content });
-        const base64Data = btoa(jsonData);
+        const jsonData = JSON.stringify({ codeConcept: title, codeContent: code });
+        const base64Data = btoa(jsonData); //base64로 변환
 
-        const response = await fetch('http://localhost:8080/api/your-endpoint', {
+        const response = await fetch('http://3.38.223.198:8080/feedback', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzU2MDY2MSwiZXhwIjoxNzI5MzYwNjYxfQ.YCkfhzDUYHuOq2Du2GTzIxakIhRxaeKriKZ2B_Gxp3Y'
           },
           body: JSON.stringify({data:base64Data}),
         });
@@ -33,7 +33,6 @@ const Home = () => {
         if (response.ok) {
           const data = await response.json();
           console.log('성공적으로 전송됨:', data);
-          setItemsList([...itemsList, { title, content }]);
           setTitle('');
           setContent('');
         } else {
@@ -46,20 +45,34 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
+  useEffect(() => { //Gemini->피드백 저장
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/your-endpoint');
+        const response = await fetch('http://3.38.223.198:8080/feedback',{
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzU2MDY2MSwiZXhwIjoxNzI5MzYwNjYxfQ.YCkfhzDUYHuOq2Du2GTzIxakIhRxaeKriKZ2B_Gxp3Y'
+          },
+        });
         if (response.ok) {
           const data = await response.json();
           console.log('데이터 가져오기 성공:', data);
-          setItemsList(data); 
         } else {
           console.error('데이터 가져오기 실패:', response.statusText);
         }
       } catch (error) {
         console.error('오류 발생:', error);
       }
+/*
+      const reviewData = JSON.stringify({ codeConcept: data.title, review: data.review });
+
+      const response = await fetch('http://3.38.223.198:8080/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        body: JSON.stringify({data:btoa(reviewData)}), 
+      })*/
     };
 
     fetchData();
@@ -78,7 +91,7 @@ const Home = () => {
         />
         <textarea id='codeContent'
           placeholder="코드를 입력하세요"
-          value={content}
+          value={code}
           onChange={handleContentChange}
           required
         />
