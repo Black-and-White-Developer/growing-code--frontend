@@ -93,6 +93,7 @@ html {
     
     display: flex;
     flex-direction: column;
+    max-height: 1700px;
 }
   
 #fbH2 {
@@ -127,7 +128,7 @@ html {
     border: 1px solid #ccc;
     border-radius: 2px;
     font-size: 16px;
-    width: 90%;
+
 }
   
 #completeButton2 {
@@ -163,4 +164,5 @@ html {
     border-radius: 5px;
     padding: 5px;
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+    height: 530px;
 }
