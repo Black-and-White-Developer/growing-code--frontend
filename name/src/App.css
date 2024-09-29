@@ -1,5 +1,5 @@
 #logo {
-  height: 60px;
+  height: 70px;
   width: auto;
   margin: 30px;
   margin-bottom: 0px;
@@ -12,6 +12,10 @@
   flex-direction: row;
   background-color: #C1E283;
   height: 170px;
+  background-image: url('./BGtop.png');
+  background-position: 76% 90%;
+  background-repeat: no-repeat;
+
 }
 
 #mpButtonA {
@@ -23,12 +27,15 @@
 #mpButton {
   height: 40px;
   font-size: 15px;
-  border-radius: 15px;
+  border-radius: 13px;
   border: 0;
   border-style: solid;
-  background-color: #568807;
+  /*background-color: #568807;*/
+  background-image: url('./soilTexture.jpg');
+  background-position: 40% 40%;
   letter-spacing: 0.5px;
-  font-weight: 900;
-  padding: 5px;
+  font-weight: 800;
+  padding: 12px;
+  padding-bottom: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
