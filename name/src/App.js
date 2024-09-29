@@ -7,6 +7,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 
+
 function AppLayout() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -29,9 +30,11 @@ function AppLayout() {
       {location.pathname !== "/mypage" && <Menubar />}
 
       <Outlet />
+
     </div>
   );
 }
+
 
 function App() {
   return (

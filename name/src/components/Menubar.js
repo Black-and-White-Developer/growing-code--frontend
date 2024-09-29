@@ -4,6 +4,7 @@ import './Menubar.css';
 
 
 const Menubar = () => {
+
   const location = useLocation(); // 현재 경로 가져오기
 
   // 해당 경로가 활성화된 경우 배경색을 변경하는 함수
@@ -22,6 +23,7 @@ const Menubar = () => {
       <Link id='LKA' className={`menubar-menu ${isActive('/links')}`} to="/links">
         <div id='LK' className={`menubar-menu-op ${isActive('/links')}`}>LINKS</div>
       </Link>
+
     </nav>
   );
 };

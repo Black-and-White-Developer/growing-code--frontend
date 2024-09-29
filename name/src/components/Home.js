@@ -4,6 +4,7 @@ import './Home.css';
 
 const Home = () => {
 
+
         // Base64 인코딩 함수
         const encodeToBase64 = (data) => {
             try {
@@ -126,6 +127,7 @@ const Home = () => {
             </div>
         );
     
+
 };
 
 export default Home;

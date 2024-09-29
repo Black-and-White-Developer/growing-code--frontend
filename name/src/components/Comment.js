@@ -1,8 +1,11 @@
+
 import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import './Comment.css';
 
 const Comment = () => {
+
     // Base64 인코딩 함수
     const encodeToBase64 = (data) => {
         try {
@@ -129,6 +132,7 @@ const Comment = () => {
                 </div>
             </div>
         </form>
+
     );
 };
 
