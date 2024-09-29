@@ -49,17 +49,19 @@
 
 
 
-
+#result {
+    text-align:left;
+}
 
 .codeContainer2 {
     max-width: 900px;
     margin: 60px auto;
-    margin-bottom: 0;
+    margin-bottom: 0px;
     padding: 5px;
     padding-bottom: 100px;
-    
     display: flex;
     flex-direction: column;
+    
 }
   
 #cmH2 {
@@ -71,6 +73,11 @@
     padding-bottom: 5px;
 }
   
+
+#comLabel {
+    margin-left: 20px;
+}
+
 #codeInsert_form {
     display: flex;
     flex-direction: col;
@@ -114,4 +121,23 @@
   
 #completeButton2:hover {
     background-color: #c1e283;
+}
+
+#noone {
+    text-align: left;
+}
+
+#result {
+    border: 0.5px solid grey;
+    background-color: #C1E283;
+    background-size: 120% 140%;
+    margin-bottom: 100px;
+    border-radius: 5px;
+    padding: 5px;
+    width: 60%;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#blank {
+    height: 1px;
 }

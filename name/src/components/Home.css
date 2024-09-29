@@ -3,22 +3,34 @@
     position: sticky;
     top: 30px; /* 화면의 상단에 붙도록 설정 */
     z-index: 1000;
-    left: 45%;
+    margin: 20px auto;
     margin-top: 20px;
+    background-color: #C1E283;
+    height: 40px;
+    width: 28%;
+    border-radius: 35px;
+    padding-top: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 #btn1, #btn2 {
-    border-radius: 18px;
+    border-radius: 30px;
     margin: 7px 17px;
     text-decoration-line: none;
-    height: 40px;
+    height: 37px;
+    
 }
 
 #one, #two {
     padding: 10px;
-    background-color: green;
-    border-radius: 15px;
-    color: white;
+    background-color: white;
+    border-radius: 20px;
+    color: green;
+    font-weight: 600;
 }
 
 .res {
@@ -61,7 +73,7 @@
     align-items: center;
     text-align: center;
     background-image: url('../BGtwo.png');
-    background-position: 0% 100%;
+    background-position: 0% 20%;
     background-repeat: no-repeat;
     background-size: 400px;
 }
@@ -135,4 +147,21 @@
   
 #completeButton2:hover {
     background-color: #c1e283;
+}
+
+#perfLabel {
+    margin-left: 15px;
+}
+#readLabel {
+    margin-left: 15px;
+}
+
+#noone, #notwo {
+    border: 0.5px solid grey;
+    background-color: #C1E283;
+    margin-bottom: 230px;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+    max-height: 1000px;
 }

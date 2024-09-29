@@ -7,7 +7,7 @@ const Home = () => {
         // Base64 인코딩 함수
         const encodeToBase64 = (data) => {
             try {
-                return btoa(unescape(encodeURIComponent(data))); // 유니코드 문자열을 안전하게 Base64로 인코딩
+                return btoa(encodeURIComponent(data)); // 유니코드 문자열을 안전하게 Base64로 인코딩
             } catch (err) {
                 console.error("인코딩 오류: ", err);
                 return null;
