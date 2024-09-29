@@ -22,16 +22,26 @@ function MyPage() {
                 },
             });
 
-            let data = await response.json();//data는 object타입
-            const formattedEntries = Object.values(data).map((item, index) => ({
-                content: item.content, // 실제 필드 이름에 맞춰서 변경
-                date: item.date,       // 실제 필드 이름에 맞춰서 변경
-                num: index + 1,       // 인덱스를 기반으로 번호 설정
+            const data = await response.json();//data는 object타입
+            const dataArray=data.reviews
+            /*console.log(dataArray)
+            console.log(dataArray[0])
+            console.log(typeof(dataArray[0][0]))*/
+
+            const newEntries = dataArray.map((item, index) => ({
+                content: "주제: " + item.title + ", 내용: " + item.content,
+                date: "노력한 과거",
+                num: index + 1,                
             }));
 
-            for(const newEntry in formattedEntries){
-                setDiaryEntries([newEntry, ...diaryEntries]);
-            }
+            setDiaryEntries(newEntries);
+
+            /*
+            for(let i=0; i<dataArray[0].length; i++){
+                var newEntry={ content: "주제: "+dataArray[0][i].title+", 내용: "+dataArray[0][i].content, date: "노력한 과거", num: diaryEntries.length+1};
+                
+            }*/
+            //console.log(typeof(diaryEntries))
         }
         catch(error){
             console.error(error);
