@@ -1,3 +1,167 @@
-.homemain {
-    background-color: red;
+
+.FBoption {
+    position: sticky;
+    top: 30px; /* 화면의 상단에 붙도록 설정 */
+    z-index: 1000;
+    margin: 20px auto;
+    margin-top: 20px;
+    background-color: #C1E283;
+    height: 40px;
+    width: 28%;
+    border-radius: 35px;
+    padding-top: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+#btn1, #btn2 {
+    border-radius: 30px;
+    margin: 7px 17px;
+    text-decoration-line: none;
+    height: 37px;
+    
+}
+
+#one, #two {
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    color: green;
+    font-weight: 600;
+}
+
+.res {
+    margin: 30px auto;
+    text-align: left;
+    width:80%;
+}
+
+
+.getData1 {
+    height: 500px;
+    background-color: white;
+    margin: 30px auto;
+}
+
+.getData2 {
+    height: 500px;
+    background-color: white;
+    margin: 30px auto;
+}
+
+.perfCont {
+    text-align: left;
+    align-items: left;
+    width: 85%;
+    font-size: 15px;
+}
+
+.readCont {
+    text-align: left;
+    margin: 10px auto;
+    background-color: red;
+    width: 85%;
+    font-size: 15px;
+}
+
+
+
+.feedback {
+    align-items: center;
+    text-align: center;
+    background-image: url('../BGtwo.png');
+    background-position: 0% 20%;
+    background-repeat: no-repeat;
+    background-size: 400px;
+}
+
+
+.FBoption {
+    align-items: center;
+
+}
+
+.codeContainer2 {
+    max-width: 900px;
+    margin: 60px auto;
+    margin-bottom: 0;
+    padding: 5px;
+    padding-bottom: 100px;
+    
+    display: flex;
+    flex-direction: column;
+    max-height: 1700px;
+}
+  
+#fbH2 {
+    text-align: left;
+    color: #3d560f;
+    margin-left: 120px;
+    margin: 20px;
+    border-bottom: 0.1px solid grey;
+    padding-bottom: 5px;
+}
+  
+#codeInsert_form {
+    display: flex;
+    flex-direction: col;
+}
+
+#codeConcept2 {
+    margin: 10px auto;
+    padding: 10px;
+    border: 0.5px solid #ccc;
+    border-radius: 2px;
+    font-size: 16px;
+    resize: none; 
+    width: 90%
+}
+  
+#codeContent2 {
+    height: 400px;
+    resize: none;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 16px;
+
+}
+  
+#completeButton2 {
+    padding: 10px;
+    margin: 10px;
+    border: none; 
+    border-radius: 2px;
+    background-color: #4a6911;
+    color: white;
+    font-size: 17px; 
+    font-weight: 600;
+    cursor: pointer; 
+    width: 13%;
+    margin-left: 33px;
+    box-shadow: 0 0px 7px rgba(0, 0, 0, 0.1);
+}
+  
+#completeButton2:hover {
+    background-color: #c1e283;
+}
+
+#perfLabel {
+    margin-left: 15px;
+}
+#readLabel {
+    margin-left: 15px;
+}
+
+#noone, #notwo {
+    border: 0.5px solid grey;
+    background-color: #C1E283;
+    margin-bottom: 230px;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+    height: 530px;

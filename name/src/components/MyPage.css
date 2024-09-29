@@ -1,0 +1,90 @@
+.leftSpace { /* 화면의 왼쪽 공간 */
+  width: 50%;
+  padding: 20px;
+  background-color: #e9ecef;
+  border-right: 1px solid #ccc; 
+}
+.profile-container {
+  position: absolute; /* Allows centering */
+  left: 15%; /* Centering on x-axis */
+  top: 50%; /* Centering on y-axis */
+  transform: translateY(-50%); /* Correcting vertical centering */
+  text-align: center;
+}
+.profile-image {
+  width: 200px; 
+  height: 200px; 
+  border-radius: 50%; /* 원형 이미지 */
+  margin-bottom: 0px;
+}
+
+.rightSpace {/*오른쪽 공간*/
+  width: 50%; 
+  padding: 20px;
+  overflow-y: auto;
+}
+.diary-input { /*성장 일기 입력창*/
+  width: 400px;
+  margin-bottom: 10px;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #45a049;
+}
+.entry {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.entry-date {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.entry-text {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: 100%;
+}
+
+.entry-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.entry-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 2px;
+}
+
+.entry-buttons button img {
+  width: 12px;
+  height: 12px;
+}
